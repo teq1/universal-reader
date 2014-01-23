@@ -1,5 +1,6 @@
 universal-reader
 ================
+[![Build Status](https://travis-ci.org/teq1/universal-reader.png?branch=master)](https://travis-ci.org/teq1/universal-reader)
 
 Instalation
 
