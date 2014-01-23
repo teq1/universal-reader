@@ -1,0 +1,17 @@
+doctype html
+html(data-ng-app="TabsModule")
+  head
+    title= title
+    link(rel='stylesheet', href='/css/style.css')
+  body(data-ng-controller="TabsController")
+    block content
+
+
+
+script(src="js/lib/angular.min.js")
+script(src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular-resource.min.js")
+script(src="js/TabsModule.js")
+script(src="js/controller/TabsController.js")
+script(src="js/service/dataService.js")
+script(src="js/service/jsonArticleParser.js")
+script(src="js/service/rssArticleParser.js")

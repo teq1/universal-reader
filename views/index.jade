@@ -1,0 +1,51 @@
+extends layout
+
+block content
+    div.container
+        div.row
+            div.col-md-6.box-container
+                h1 Universla reader
+                h6 by Wiktor Jamro
+                div.btn-group.m-b-20.btn-group-justified
+                    a(data-ng-click="showTab('apacheLogs')", data-ng-class="{'active': VisibleTab == 'apacheLogs'}").btn.btn-default Apache logs
+                    a(data-ng-click="showTab('jsonFeed')", data-ng-class="{'active': VisibleTab == 'jsonFeed'}").btn.btn-default JSON Feed
+                    a(data-ng-click="showTab('rssFeed')", data-ng-class="{'active': VisibleTab == 'rssFeed'}").btn.btn-default RSS Feed
+
+                // JSON FEED
+                section(data-ng-show="VisibleTab ==  'jsonFeed'")
+                    ul.list-unstyled
+                        li(data-ng-repeat="article in jsonArticles | orderBy: 'date':true").list__border-bottom
+                            p
+                                a(href="{{article.link}}") {{article.title}}
+                            p
+                                small Posted: {{article.date | date:'yyyy-MM-dd HH:mm'}}
+                            p {{article.description}}
+                            p(data-ng-show="article.category") Category:
+                                span.label.label-primary.m-l-5 {{article.category}}
+
+                // RSS FEED
+                section(data-ng-show="VisibleTab ==  'rssFeed'")
+                    ul.list-unstyled
+                        li(data-ng-repeat="article in rssArticles | orderBy: 'publishedDate':true").list__border-bottom
+                            p
+                                a(href="{{article.link}}") {{article.title}}
+                            p(data-ng-show="article.publishedDate")
+                                small Published: {{article.publishedDate | date:'yyyy-MM-dd HH:mm'}}
+
+                //APACHE LOGS
+                section(data-ng-show="VisibleTab ==  'apacheLogs'")
+                    h4 Most traffic
+                    ol.list__border-bottom
+                        li(data-ng-repeat="log in apacheLogsHost")
+                            p.bold {{log.host}}
+                            p
+                                span.label.label-primary Requested: {{log.counts}} times
+                    h4 Most requested files
+                    ol
+                        li(data-ng-repeat="log in apacheLogsRequest")
+                            p.bold {{log.host}}
+                            p
+                                span.label.label-primary Requested: {{log.counts}} times
+
+
+            include readme
