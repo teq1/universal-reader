@@ -9,6 +9,13 @@
     var TabsController = function($scope, dataService, jsonArticleParser, rssArticleParser){
 
         /**
+         * Init broadcast
+         * @type {string}
+         */
+        $scope.RELOAD_DATA = "true";
+        $scope.$broadcast($scope.RELOAD_DATA);
+
+        /**
          * Tabs
          */
         $scope.VisibleTab = "jsonFeed";

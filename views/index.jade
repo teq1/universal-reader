@@ -3,11 +3,11 @@ extends layout
 block content
     div.container
         div.row
-            div.col-md-6.box-container
-                h1 Universla reader
+            div.col-md-5.box-container
+                h1 Universal reader
                 h6 by Wiktor Jamro
                 div.btn-group.m-b-20.btn-group-justified
-                    a(data-ng-click="showTab('apacheLogs')", data-ng-class="{'active': VisibleTab == 'apacheLogs'}").btn.btn-default Apache logs
+                    a(data-ng-click="showTab('apacheLogs')", data-ng-class="{'active': VisibleTab == 'apacheLogs'}").btn.btn-default Server Logs
                     a(data-ng-click="showTab('jsonFeed')", data-ng-class="{'active': VisibleTab == 'jsonFeed'}").btn.btn-default JSON Feed
                     a(data-ng-click="showTab('rssFeed')", data-ng-class="{'active': VisibleTab == 'rssFeed'}").btn.btn-default RSS Feed
 
@@ -35,7 +35,7 @@ block content
                 //APACHE LOGS
                 section(data-ng-show="VisibleTab ==  'apacheLogs'")
                     h4 Most traffic
-                    ol.list__border-bottom
+                    ol.list__border-bottom.p-b-10
                         li(data-ng-repeat="log in apacheLogsHost")
                             p.bold {{log.host}}
                             p

@@ -1,6 +1,10 @@
 // Dependencies
 var lineReader = require('line-reader');
 
+/**
+ * Obj preparation
+ * @type {Array}
+ */
 var logs = [];
 var occurrenceArray;
 var requestsArray;
@@ -17,7 +21,6 @@ var sortByProp = function(arr, prop) {
         return 0;
     })
 };
-
 
 var occurrenceCounter = function(arr, prop) {
     sortByProp(arr, prop);
@@ -64,7 +67,6 @@ lineReader.eachLine('logs/varnish.log',function(line, last) {
     };
     logs.push(obj);
 }).then(function() {
-
             occurrenceArray = occurrenceCounter(logs, "domain");
             occurrenceArray = combineArrays(occurrenceArray);
             occurrenceArray.sort(function(obj1, obj2) {

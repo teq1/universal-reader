@@ -1,5 +1,40 @@
-div.col-md-4.col-md-offset-2.box-container
-    h3.list__border-bottom.p-b-10 Readme
+div.col-md-5.col-md-offset-2.box-container
+    h1.p-b-10 Readme
 
-    h4 Instalation
-    div.well npm install
+    h3.list__border-bottom.p-b-10 Instalation
+    h4 Requirements
+    p Node, npm, Git, Chrome
+    div.well
+        p $ git clone git@github.com:teq1/universal-reader.git
+        p $ npm install
+        p $ node app.js
+        p Lounch: http://localhost:8000/
+
+    h3.list__border-bottom.p-b-10 Stuff inside
+    ol
+        li AngularJs
+        li NodeJs
+        li ExpressJs
+        li Jade
+        li Less
+        li Bootstrap
+
+    h3.list__border-bottom.p-b-10 How it works?
+
+    p RSS and JSON data are fetched by angularjs services which are returning promis. Promises are resolved in controller where data is prepared and binded to scope. Data preparation is simply parsing date property ( I'm not extra fluent in this so there might be better ways to do this ) Jade template is receving prepared data from scope and do some magic ( ordering, adding classes etc ).
+    p Server logs are parsed on server side and served by REST cals: /apache-logs/request and /apache-logs/hosts as json objects. Log file is splited to single lines by node line-reader and than sorted, host and requests are counted and combined to objects. Those objects contains only required data.
+    p Thats all folks!
+
+    h3.list__border-bottom.p-b-10 To do list
+    ul
+        li Fix bug on log fetching: "-"
+        li Write REST tests
+        li Write Unit test
+        li DRY
+        li Review data preparation scripts
+        li Remove bootstrap
+        li Implement minimization of JS files
+        li Cross browser tests
+        li Implements alerts on data fetching errors
+        li Implement data reload
+
