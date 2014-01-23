@@ -1,15 +1,8 @@
 universal-reader
 ================
 
-Requirements
-================
-Node
+Instalation
 
-npm
-
-Git
-
-Chrome
 
 $ git clone git@github.com:teq1/universal-reader.git
 
